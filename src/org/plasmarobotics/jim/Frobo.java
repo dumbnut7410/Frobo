@@ -32,33 +32,11 @@ public class Frobo extends IterativeRobot {
      * used for any initialization code.
      */
     
-    /*
-     * Constants
-     */
    
-    //joysticks
-    public static final int LEFT_STICK_PORT = 1;
-    public static final int RIGHT_STICK_PORT = 2;
-    
-    
-    
-    //shooter motors
-    public static final int FRONT_SHOOTER_CONTROLLER_PORT = 5;
-    public static final int BACK_SHOOTER_CONTROLLER_PORT = 6;
-    
-    
-    /*
-     * Control objects used on the robot
-     */
-    Joystick rightStick,
-            leftStick;
-    JoystickButton triggerButton;
     
       
     public void robotInit() {
         
-        rightStick = new Joystick(RIGHT_STICK_PORT);
-        leftStick = new Joystick(RIGHT_STICK_PORT);
         
        
         
