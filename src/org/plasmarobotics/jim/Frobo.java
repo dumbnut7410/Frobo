@@ -27,17 +27,23 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * directory.
  */
 public class Frobo extends IterativeRobot {
+    
+    Controls controls;
+    FroboDrive drive;
+    FroboShoot shoot;
+    FroboClimb climb;
+   
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    
-   
-    
       
     public void robotInit() {
         
-        
+    controls = new Controls();
+    drive = new FroboDrive(controls.getLeftStick(), controls.getRightStick());
+    shoot = new FroboShoot();
+    climb = new FroboClimb();
        
         
         
@@ -54,6 +60,9 @@ public class Frobo extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+        drive.update();
+        
+        
         
     }
     

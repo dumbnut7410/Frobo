@@ -22,6 +22,7 @@ public class Controls {
     
     JoystickButton shootButton;
     
+    
     //joystick ports
     public static final int LEFT_STICK_PORT = 1;
     public static final int RIGHT_STICK_PORT = 2;
@@ -34,6 +35,24 @@ public class Controls {
         
         shootButton = new JoystickButton(rightStick, SHOOT_TRIGGER_BUTTON);
         
+    }
+
+    public Joystick getRightStick() {
+        return rightStick;
+    }
+
+    public Joystick getLeftStick() {
+        return leftStick;
+    }
+
+    /**
+     * Primary method of this class.
+     * 0 = shoot
+     * @return an int to represent which controls are pressed
+     */
+    public JoystickButton getControl(){
+        
+        return shootButton;
     }
     
     

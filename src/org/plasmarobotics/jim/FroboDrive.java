@@ -47,7 +47,7 @@ public class FroboDrive {
      * @param rightJoystick Right joystick for tank drive
      * @param chassis Object representing the collection of motor controllers
      */
-    public FroboDrive(Joystick leftJoystick, Joystick rightJoystick, RobotDrive chassis){
+    public FroboDrive(Joystick leftJoystick, Joystick rightJoystick){
         //Binds the joysticks...
         this.leftJoystick = leftJoystick;
         this.righJoystick = rightJoystick;
@@ -68,6 +68,7 @@ public class FroboDrive {
      */
     public void update(){
         chassis.tankDrive(leftJoystick, righJoystick);
+        
     }
     
 }
