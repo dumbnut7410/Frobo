@@ -6,7 +6,8 @@ package org.plasmarobotics.jim;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+import edu.wpi.first.wpilibj.command.Command;
+import java.util.*;
 /**
  *Class to handle user input of the robot
  * @author Jim
@@ -22,12 +23,15 @@ public class Controls {
     
     JoystickButton shootButton;
     
-    
     //joystick ports
     public static final int LEFT_STICK_PORT = 1;
     public static final int RIGHT_STICK_PORT = 2;
     
     public static final int SHOOT_TRIGGER_BUTTON = 1;
+    
+    
+    Vector buttons,//ArrayList for all buttons
+            pressedButtons; //ArrayList for all buttons pressed
     
     public Controls(){
         rightStick = new Joystick(RIGHT_STICK_PORT);
@@ -35,6 +39,7 @@ public class Controls {
         
         shootButton = new JoystickButton(rightStick, SHOOT_TRIGGER_BUTTON);
         
+        buttons.addElement(shootButton);
     }
 
     public Joystick getRightStick() {
@@ -46,14 +51,11 @@ public class Controls {
     }
 
     /**
-     * Primary method of this class.
-     * 0 = shoot
-     * @return an int to represent which controls are pressed
+     * This refreshes the controls for the robot
+     *  
      */
-    public JoystickButton getControl(){
-        
-        return shootButton;
-    }
-    
-    
+   public void getControls(Command shoot){
+       shootButton.whenPressed(shoot);
+   }
+   
 }

@@ -6,6 +6,7 @@ package org.plasmarobotics.jim;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *This class handles all climbing operations of the robot
@@ -42,6 +43,6 @@ public class FroboClimb {
         leftVictor = new Victor(LEFT_VICTOR_PORT);
         rightVictor = new Victor(RIGHT_VICTOR_PORT);
     }
-    
+           
     
 }

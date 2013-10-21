@@ -26,11 +26,16 @@ public class FroboShoot {
     
     
     
-    private Victor frontShootVictor = new Victor(FRONT_SHOOT_CRIO_PORT);
-    private Victor backShootVictor = new Victor(BACK_SHOOT_CRIO_PORT);
+    private static Victor frontShootVictor = new Victor(FRONT_SHOOT_CRIO_PORT);
+    private static Victor backShootVictor = new Victor(BACK_SHOOT_CRIO_PORT);
     
-    private DoubleSolenoid shootSolenoid;
+    private static DoubleSolenoid shootSolenoid;
     
+    
+    //used to pass the shootCommand to the model class
+    public static Command getShootCommand(){
+        return new shootFrisbee();
+    }
     
     
     public FroboShoot(){
@@ -39,18 +44,39 @@ public class FroboShoot {
         
     }
     
-    //semi auto is bad mmmkaaayyy
-    public void shootFrisbee(){
-        frontShootVictor.set(FRONT_SHOOT_MOTOR_SPEED);
-        backShootVictor.set(BACK_SHOOT_MOTOR_SPEED);
+     
+    /*
+     * Command used for shooting
+     */
+    public static class shootFrisbee extends Command{
+        boolean finished = false;
         
-        shootSolenoid.set(DoubleSolenoid.Value.kForward);
+        protected void initialize() {
+            
+        }
+        
+        protected void execute() {
+            frontShootVictor.set(FRONT_SHOOT_MOTOR_SPEED);
+            backShootVictor.set(BACK_SHOOT_MOTOR_SPEED);
+        
+            shootSolenoid.set(DoubleSolenoid.Value.kForward);
+            finished = true;
+        }
+        
+        protected void interrupted() {
+            
+        }
+        
+        protected boolean isFinished() {
+            return finished;
+        }
+        
+        protected void end() {
+            shootSolenoid.set(DoubleSolenoid.Value.kReverse);
+        }
+       
     }
     
-    //if only we had sensors...
-    public void resetShooter(){
-        shootSolenoid.set(DoubleSolenoid.Value.kReverse);
-    }
         
 }
 

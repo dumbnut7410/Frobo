@@ -29,7 +29,7 @@ public class FroboDrive {
      * Controls
      */
     Joystick leftJoystick,
-            righJoystick;
+            rightJoystick;
     /*
      * Components to manipulate
      */
@@ -41,7 +41,7 @@ public class FroboDrive {
     RobotDrive chassis;
      
     /**
-     * Used to create a FroboShoot object to control all driving controls
+     * Used to create a FroboDrive object to control all driving controls
      * 
      * @param leftJoystick Left joystick for tank drive
      * @param rightJoystick Right joystick for tank drive
@@ -50,7 +50,7 @@ public class FroboDrive {
     public FroboDrive(Joystick leftJoystick, Joystick rightJoystick){
         //Binds the joysticks...
         this.leftJoystick = leftJoystick;
-        this.righJoystick = rightJoystick;
+        this.rightJoystick = rightJoystick;
         
         //Binds the Talons...
         frontLeftTalon = new Talon(FRONT_LEFT_CONTROLLER_PORT);
@@ -67,7 +67,7 @@ public class FroboDrive {
      * called periodically during teleop to control the robot
      */
     public void update(){
-        chassis.tankDrive(leftJoystick, righJoystick);
+        chassis.tankDrive(leftJoystick, rightJoystick);
         
     }
     

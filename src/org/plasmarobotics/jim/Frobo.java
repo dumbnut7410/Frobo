@@ -11,13 +11,7 @@ package org.plasmarobotics.jim;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Jaguar;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotBase;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Victor;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import java.util.Vector;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,7 +26,9 @@ public class Frobo extends IterativeRobot {
     FroboDrive drive;
     FroboShoot shoot;
     FroboClimb climb;
-   
+    
+    Vector controlVector;
+    Integer buttonInt; //the number pulled out of an address in a vector
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -60,10 +56,12 @@ public class Frobo extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+       
+        
+        controls.getControls(FroboShoot.getShootCommand());
+       
         drive.update();
-        
-        
-        
+               
     }
     
     /**
