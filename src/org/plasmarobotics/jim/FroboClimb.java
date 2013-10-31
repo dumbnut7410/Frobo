@@ -17,16 +17,7 @@ public class FroboClimb {
     /*
      * cRIO ports
      */
-    //Solenoids...
-    public static final int LEFT_SOLENOID_FORWARD_PORT = 10;
-    public static final int LEFT_SOLENOID_REVERSE_PORT = 11;
     
-    public static final int RIGHT_SOLENOID_FORWARD_PORT = 12;
-    public static final int RIGHT_SOLENOID_REVERSE_PORT = 13;
-    
-    //Victors...
-    public static final int LEFT_VICTOR_PORT = 14;
-    public static final int RIGHT_VICTOR_PORT = 15;
     
     DoubleSolenoid leftSolenoid,
             rightSolenoid;
@@ -37,11 +28,11 @@ public class FroboClimb {
     
     public FroboClimb(){
         
-        leftSolenoid = new DoubleSolenoid(LEFT_SOLENOID_FORWARD_PORT, LEFT_SOLENOID_REVERSE_PORT);
-        rightSolenoid = new DoubleSolenoid(RIGHT_SOLENOID_FORWARD_PORT, RIGHT_SOLENOID_REVERSE_PORT);
+        leftSolenoid = new DoubleSolenoid(Constants.LEFT_SOLENOID_FORWARD_PORT, Constants.LEFT_SOLENOID_REVERSE_PORT);
+        rightSolenoid = new DoubleSolenoid(Constants.RIGHT_SOLENOID_FORWARD_PORT, Constants.RIGHT_SOLENOID_REVERSE_PORT);
         
-        leftVictor = new Victor(LEFT_VICTOR_PORT);
-        rightVictor = new Victor(RIGHT_VICTOR_PORT);
+        leftVictor = new Victor(Constants.LEFT_CLIMB_VICTOR_PORT);
+        rightVictor = new Victor(Constants.RIGHT_CLIMB_VICTOR_PORT);
     }
            
     

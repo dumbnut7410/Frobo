@@ -15,29 +15,9 @@ import edu.wpi.first.wpilibj.Talon;
 
 public class FroboDrive {
     
-    /*
-     * Constants
-     */
-    
-    //drive motors
-    public static final int FRONT_LEFT_CONTROLLER_PORT = 1;
-    public static final int BACK_LEFT_CONTROLLER_PORT = 2;
-    public static final int FRONT_RIGHT_CONTROLLER_PORT = 3;
-    public static final int BACK_RIGHT_CONTROLLER_PORT = 4;
-    
-    /*
-     * Controls
-     */
     Joystick leftJoystick,
             rightJoystick;
-    /*
-     * Components to manipulate
-     */
-    private Talon frontLeftTalon, 
-                frontRightTalon,
-                backLeftTalon,
-                backRightTalon;
-    
+   
     RobotDrive chassis;
      
     /**
@@ -45,21 +25,14 @@ public class FroboDrive {
      * 
      * @param leftJoystick Left joystick for tank drive
      * @param rightJoystick Right joystick for tank drive
-     * @param chassis Object representing the collection of motor controllers
      */
     public FroboDrive(Joystick leftJoystick, Joystick rightJoystick){
         //Binds the joysticks...
         this.leftJoystick = leftJoystick;
         this.rightJoystick = rightJoystick;
         
-        //Binds the Talons...
-        frontLeftTalon = new Talon(FRONT_LEFT_CONTROLLER_PORT);
-        frontRightTalon = new Talon(FRONT_RIGHT_CONTROLLER_PORT);
-        backLeftTalon = new Talon(BACK_LEFT_CONTROLLER_PORT);
-        backRightTalon = new Talon(BACK_RIGHT_CONTROLLER_PORT);
-        
         //Creates a RobotDrive...
-        chassis = new RobotDrive(frontLeftTalon, backRightTalon, frontRightTalon, backRightTalon);
+        chassis = new RobotDrive(Constants.FRONT_LEFT_DRIVE_PORT, Constants.BACK_LEFT_DRIVE_PORT, Constants.FRONT_RIGHT_DRIVE_PORT, Constants.BACK_RIGHT_DRIVE_PORT);
         
     }
     

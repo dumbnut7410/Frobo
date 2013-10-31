@@ -10,7 +10,9 @@
 package org.plasmarobotics.jim;
 
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
 import java.util.Vector;
 
 /**
@@ -22,27 +24,29 @@ import java.util.Vector;
  */
 public class Frobo extends IterativeRobot {
     
-    Controls controls;
-    FroboDrive drive;
-    FroboShoot shoot;
-    FroboClimb climb;
-    
-    Vector controlVector;
-    Integer buttonInt; //the number pulled out of an address in a vector
+    Joystick rightJoystick,
+            leftJoystick;
+  
+    private FroboDrive drive;
+    private FroboShoot shoot;
+    private FroboClimb climb;
+    private Compressor compress;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
       
     public void robotInit() {
+    
+        leftJoystick = new Joystick(Constants.LEFT_STICK_PORT);
+        rightJoystick = new Joystick(Constants.RIGHT_STICK_PORT);
+
+        drive = new FroboDrive(leftJoystick, rightJoystick);
+        shoot = new FroboShoot(rightJoystick);
+        climb = new FroboClimb();
         
-    controls = new Controls();
-    drive = new FroboDrive(controls.getLeftStick(), controls.getRightStick());
-    shoot = new FroboShoot();
-    climb = new FroboClimb();
-       
-        
-        
+        compress = new Compressor(Constants.PRESSURE_SWITCH_PORT, Constants.COMPRESSOR_RELAY_CHANNEL);
+        compress.start();
     }
 
     /**
@@ -57,11 +61,8 @@ public class Frobo extends IterativeRobot {
      */
     public void teleopPeriodic() {
        
-        
-        controls.getControls(FroboShoot.getShootCommand());
-       
         drive.update();
-               
+         
     }
     
     /**
@@ -71,4 +72,11 @@ public class Frobo extends IterativeRobot {
     
     }
     
+    public Joystick getRightJoystick() {
+        return rightJoystick;
+    }
+
+    public Joystick getLeftJoystick() {
+        return leftJoystick;
+    }
 }
