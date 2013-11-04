@@ -30,7 +30,7 @@ public class FroboShoot {
     public FroboShoot(Joystick rightStick){
         
         this.rightJoystick = rightStick;
-        this.shootBtn = new JoystickButton(rightStick, Constants.SHOOT_TRIGGER_BUTTON);
+        this.shootBtn = new JoystickButton(rightStick, Constants.JOYSTICK_TRIGGER_BUTTON);
         
         this.shootSolenoid = new DoubleSolenoid(Constants.SHOOT_KICKER_FORWARD_PORT, Constants.SHOOT_KICKER_REVERSE_PORT);
         
