@@ -4,7 +4,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+//desktop version
 //monsters consumed: 1
 
 package org.plasmarobotics.jim;
