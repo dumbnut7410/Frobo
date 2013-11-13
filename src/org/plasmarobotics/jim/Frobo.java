@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
+//monsters consumed: 1
 
 package org.plasmarobotics.jim;
 
@@ -23,8 +23,6 @@ import java.util.Vector;
  * directory.
  */
 public class Frobo extends IterativeRobot {
-    int monstersConsumed = 2;
-    
     
     Joystick rightJoystick,
             leftJoystick;
