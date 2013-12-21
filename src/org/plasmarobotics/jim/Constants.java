@@ -46,13 +46,14 @@ public final class Constants {
                         BACK_SHOOT_MOTOR_SPEED = .5;
     
     //Joystick buttons
-    public static final int JOYSTICK_TRIGGER_BUTTON = 1;
+    public static final int JOYSTICK_TRIGGER_BUTTON = 1, //shoots frisbee
+            JOYSTICK_MIDDLE_THUMB_BUTTON = 3; //toggles shoot motors
     
     //Gamepad buttons
-    public static final int GAMEPAD_RIGHT_TRIGGER = 1,
+    public static final int GAMEPAD_RIGHT_TRIGGER = 1, 
                         GAMEPAD_LEFT_TRIGGER = 2,
                         GAMEPAD_TRIANGLE = 3,
-                        GAMEPAD_CIRCLE = 4,
+                        GAMEPAD_CIRCLE = 4, 
                         GAMEPAD_SQUARE = 5,
                         GAMEPAD_CROSS = 6,
                         GAMEPAD_START = 7;

@@ -64,7 +64,7 @@ public class Frobo extends IterativeRobot {
     public void teleopPeriodic() {
        
         drive.update();
-         
+        shoot.update();
     }
     
     /**
