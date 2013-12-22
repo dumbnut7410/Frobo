@@ -5,7 +5,11 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
 //monsters consumed: 1
+
+//laptop edition
+
 
 package org.plasmarobotics.jim;
 
@@ -62,7 +66,7 @@ public class Frobo extends IterativeRobot {
     public void teleopPeriodic() {
        
         drive.update();
-         
+        shoot.update();
     }
     
     /**

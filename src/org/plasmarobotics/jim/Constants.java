@@ -41,8 +41,31 @@ public final class Constants {
     public static final int RIGHT_CLIMB_VICTOR_PORT = 15;
     
     //motor speeds
+
     public static final double FRONT_SHOOT_MOTOR_SPEED = .5;
     public static final double BACK_SHOOT_MOTOR_SPEED = .5;
+
+ 
+    
+    //Joystick buttons
+    public static final int JOYSTICK_TRIGGER_BUTTON = 1, //shoots frisbee
+            JOYSTICK_MIDDLE_THUMB_BUTTON = 3; //toggles shoot motors
+    
+    //Gamepad buttons
+    public static final int GAMEPAD_RIGHT_TRIGGER = 1, 
+                        GAMEPAD_LEFT_TRIGGER = 2,
+                        GAMEPAD_TRIANGLE = 3,
+                        GAMEPAD_CIRCLE = 4, 
+                        GAMEPAD_SQUARE = 5,
+                        GAMEPAD_CROSS = 6,
+                        GAMEPAD_START = 7;
+    
+    //Gamepad thumbsticks
+    public static final int GAMEPAD_LEFT_X_AXIS = 1,
+                        GAMEPAD_LEFT_Y_AXIS = 2,
+                        GAMEPAD_RIGHT_X_AXIS = 3,
+                        GAMEPAD_RIGHT_Y_AXIS = 4;
+
     
     //Buttons
     public static final int SHOOT_TRIGGER_BUTTON = 1;

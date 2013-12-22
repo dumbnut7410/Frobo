@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
+import org.plasmarobotics.jim.utils.ToggleableButton;
 /**
  *Class to manage shooting functionality of the robot
  * @author Jim
@@ -20,8 +21,11 @@ public class FroboShoot {
     
     private static DoubleSolenoid shootSolenoid;
     
+    private boolean motorsSpinning;
+    
     Joystick rightJoystick;
-    JoystickButton shootBtn;
+    ToggleableButton shootBtn,
+            motorToggle;
     
     /**
      * Sets up a froboShoot object
@@ -30,54 +34,52 @@ public class FroboShoot {
     public FroboShoot(Joystick rightStick){
         
         this.rightJoystick = rightStick;
-        this.shootBtn = new JoystickButton(rightStick, Constants.SHOOT_TRIGGER_BUTTON);
+
+        this.shootBtn = new ToggleableButton(rightStick, Constants.SHOOT_TRIGGER_BUTTON);
+
+        
+        this.shootBtn = new ToggleableButton(rightStick, Constants.JOYSTICK_TRIGGER_BUTTON);
+        this.motorToggle = new ToggleableButton(rightStick, Constants.JOYSTICK_MIDDLE_THUMB_BUTTON);
+
         
         this.shootSolenoid = new DoubleSolenoid(Constants.SHOOT_KICKER_FORWARD_PORT, Constants.SHOOT_KICKER_REVERSE_PORT);
         
         this.frontShootVictor = new Victor(Constants.FRONT_SHOOT_PORT);
         this.backShootVictor = new Victor(Constants.BACK_SHOOT_PORT);
         
-        
+        motorsSpinning = false;
     }
     
     /**
      * Called by teleopPeriodic() in main class
      */
     public void update(){
-        if(shootBtn.get()){
-            
-        }
+       if(shootBtn.isPressed()){
+           shootSolenoid.set(DoubleSolenoid.Value.kForward);
+       } else{
+           shootSolenoid.set(DoubleSolenoid.Value.kReverse);
+       }
+       
+       refreshMotors(motorToggle);
+       
     }
-    /*
-     * Command used for shooting
+  
+    /**
+     * Toggles whether or not the 
      */
-    public static class shootFrisbee extends Command{
-        boolean finished = false;
+    private void refreshMotors(ToggleableButton button){
         
-        protected void initialize() {
-            
+        if(button.isPressed()){
+           motorsSpinning = !motorsSpinning;
         }
         
-        protected void execute() {
+        if(motorsSpinning){
             frontShootVictor.set(Constants.FRONT_SHOOT_MOTOR_SPEED);
             backShootVictor.set(Constants.BACK_SHOOT_MOTOR_SPEED);
-        
-            shootSolenoid.set(DoubleSolenoid.Value.kForward);
-            finished = true;
+        } else{
+            frontShootVictor.set(0);
+            backShootVictor.set(0);
         }
-        
-        protected void interrupted() {
-            
-        }
-        
-        protected boolean isFinished() {
-            return finished;
-        }
-        
-        protected void end() {
-            shootSolenoid.set(DoubleSolenoid.Value.kReverse);
-        }
-       
     }
     
         
