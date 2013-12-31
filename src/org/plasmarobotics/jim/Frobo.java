@@ -45,8 +45,8 @@ public class Frobo extends IterativeRobot {
         leftJoystick = new Joystick(Constants.LEFT_STICK_PORT);
         rightJoystick = new Joystick(Constants.RIGHT_STICK_PORT);
 
-        drive = new FroboDrive(leftJoystick, rightJoystick);
-        shoot = new FroboShoot(rightJoystick);
+        drive = new FroboDrive(leftJoystick, rightJoystick, this);
+        shoot = new FroboShoot(rightJoystick, this);
         climb = new FroboClimb();
         
         compress = new Compressor(Constants.PRESSURE_SWITCH_PORT, Constants.COMPRESSOR_RELAY_CHANNEL);

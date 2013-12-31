@@ -31,9 +31,9 @@ public class FroboShoot {
      * Sets up a froboShoot object
      * @param rightStick Needed to bind the JoystickButton to shoot
      */
-    public FroboShoot(Joystick rightStick){
+    public FroboShoot(Joystick rightStick, Frobo frobo){
         
-        this.rightJoystick = rightStick;
+        this.rightJoystick = frobo.getRightJoystick();
 
         this.shootBtn = new ToggleableButton(rightStick, Constants.SHOOT_TRIGGER_BUTTON);
 

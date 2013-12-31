@@ -25,11 +25,12 @@ public class FroboDrive {
      * 
      * @param leftJoystick Left joystick for tank drive
      * @param rightJoystick Right joystick for tank drive
+     * @param frobo Instance of the main class
      */
-    public FroboDrive(Joystick leftJoystick, Joystick rightJoystick){
+    public FroboDrive(Joystick leftJoystick, Joystick rightJoystick, Frobo frobo){
         //Binds the joysticks...
-        this.leftJoystick = leftJoystick;
-        this.rightJoystick = rightJoystick;
+        this.leftJoystick = frobo.getLeftJoystick();
+        this.rightJoystick = frobo.getRightJoystick();
         
         //Creates a RobotDrive...
         chassis = new RobotDrive(Constants.FRONT_LEFT_DRIVE_PORT, 

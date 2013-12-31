@@ -13,6 +13,7 @@ public final class Constants {
     //joystick ports
     public static final int LEFT_STICK_PORT = 1;
     public static final int RIGHT_STICK_PORT = 2;
+    public static final int GAMEPAD_PORT = 3;
     
     //Drive motors
     public static final int FRONT_LEFT_DRIVE_PORT = 1;
@@ -40,12 +41,15 @@ public final class Constants {
     public static final int LEFT_CLIMB_VICTOR_PORT = 14;
     public static final int RIGHT_CLIMB_VICTOR_PORT = 15;
     
-    //motor speeds
-
+    //Motor speeds
     public static final double FRONT_SHOOT_MOTOR_SPEED = .5;
     public static final double BACK_SHOOT_MOTOR_SPEED = .5;
 
- 
+    //Climbing servo
+    public static final int CLIMB_SERVO_PORT = 10;
+    
+    public static final double CLIMB_SERVO_OPEN = .25,
+            CLIMB_SERVO_CLOSE = 0;
     
     //Joystick buttons
     public static final int JOYSTICK_TRIGGER_BUTTON = 1, //shoots frisbee
