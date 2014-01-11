@@ -16,37 +16,37 @@ public final class Constants {
     public static final int GAMEPAD_PORT = 3;
     
     //Drive motors
-    public static final int FRONT_LEFT_DRIVE_PORT = 1;
-    public static final int BACK_LEFT_DRIVE_PORT = 2;
-    public static final int FRONT_RIGHT_DRIVE_PORT = 3;
-    public static final int BACK_RIGHT_DRIVE_PORT = 4;
+    public static final int FRONT_LEFT_DRIVE_CHANNEL = 1;
+    public static final int BACK_LEFT_DRIVE_CHANNEL = 2;
+    public static final int FRONT_RIGHT_DRIVE_CHANNEL = 3;
+    public static final int BACK_RIGHT_DRIVE_CHANNEL = 4;
     
     //Shooting ports
-    public static final int FRONT_SHOOT_PORT = 6;
-    public static final int BACK_SHOOT_PORT = 7;
+    public static final int FRONT_SHOOT_CHANNEL = 6;
+    public static final int BACK_SHOOT_CHANNEL = 7;
     
     //Shoot kicker
-    public static final int SHOOT_KICKER_FORWARD_PORT = 8;
-    public static final int SHOOT_KICKER_REVERSE_PORT = 9;
+    public static final int SHOOT_KICKER_FORWARD_CHANNEL = 8;
+    public static final int SHOOT_KICKER_REVERSE_CHANNEL = 9;
     
     //left climb arm
-    public static final int LEFT_SOLENOID_FORWARD_PORT = 10;
-    public static final int LEFT_SOLENOID_REVERSE_PORT = 11;
+    public static final int LEFT_SOLENOID_FORWARD_CHANNEL = 10;
+    public static final int LEFT_SOLENOID_REVERSE_CHANNEL = 11;
     
     //right climb arm
-    public static final int RIGHT_SOLENOID_FORWARD_PORT = 12;
-    public static final int RIGHT_SOLENOID_REVERSE_PORT = 13;
+    public static final int RIGHT_SOLENOID_FORWARD_CHANNEL = 12;
+    public static final int RIGHT_SOLENOID_REVERSE_CHANNEL = 13;
     
     //Climb Victors
-    public static final int LEFT_CLIMB_VICTOR_PORT = 14;
-    public static final int RIGHT_CLIMB_VICTOR_PORT = 15;
+    public static final int LEFT_CLIMB_VICTOR_CHANNEL = 14;
+    public static final int RIGHT_CLIMB_VICTOR_CHANNEL = 15;
     
     //Motor speeds
     public static final double FRONT_SHOOT_MOTOR_SPEED = .5;
     public static final double BACK_SHOOT_MOTOR_SPEED = .5;
 
     //Climbing servo
-    public static final int CLIMB_SERVO_PORT = 10;
+    public static final int CLIMB_SERVO_CHANNEL = 10;
     
     public static final double CLIMB_SERVO_OPEN = .25,
             CLIMB_SERVO_CLOSE = 0;
@@ -71,10 +71,18 @@ public final class Constants {
                         GAMEPAD_RIGHT_Y_AXIS = 4;
 
     
-    //Buttons
+    //Joystick Buttons
     public static final int SHOOT_TRIGGER_BUTTON = 1;
     
     //Compressor
-    public static final int PRESSURE_SWITCH_PORT = 14;
+    public static final int PRESSURE_SWITCH_CHANNEL = 14;
     public static final int COMPRESSOR_RELAY_CHANNEL = 1;
+    
+    //Encoder
+    public static final int ENCODER_A_CHANNEL = 1;
+    public static final int ENCODER_B_CHANNEL = 2;
+    
+    public static final double ENCODER_DISTANCE_PER_PULSE = 2.1;
+    
+    
 }

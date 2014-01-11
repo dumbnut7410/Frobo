@@ -36,12 +36,12 @@ public class FroboClimb {
         
         gamePad = new Joystick(Constants.GAMEPAD_PORT);
         
-        climbSolenoid = new DoubleSolenoid(Constants.LEFT_SOLENOID_FORWARD_PORT, Constants.LEFT_SOLENOID_REVERSE_PORT);
+        climbSolenoid = new DoubleSolenoid(Constants.LEFT_SOLENOID_FORWARD_CHANNEL, Constants.LEFT_SOLENOID_REVERSE_CHANNEL);
              
-        lock = new Servo(Constants.CLIMB_SERVO_PORT);
+        lock = new Servo(Constants.CLIMB_SERVO_CHANNEL);
         
-        leftVictor = new Victor(Constants.LEFT_CLIMB_VICTOR_PORT);
-        rightVictor = new Victor(Constants.RIGHT_CLIMB_VICTOR_PORT);
+        leftVictor = new Victor(Constants.LEFT_CLIMB_VICTOR_CHANNEL);
+        rightVictor = new Victor(Constants.RIGHT_CLIMB_VICTOR_CHANNEL);
     }
            
     public void update(){

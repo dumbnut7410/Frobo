@@ -4,6 +4,7 @@
  */
 package org.plasmarobotics.jim;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 
@@ -19,6 +20,7 @@ public class FroboDrive {
             rightJoystick;
    
     RobotDrive chassis;
+    Encoder encoder;
      
     /**
      * Used to create a FroboDrive object to control all driving controls
@@ -33,10 +35,13 @@ public class FroboDrive {
         this.rightJoystick = frobo.getRightJoystick();
         
         //Creates a RobotDrive...
-        chassis = new RobotDrive(Constants.FRONT_LEFT_DRIVE_PORT, 
-                Constants.BACK_LEFT_DRIVE_PORT, 
-                Constants.FRONT_RIGHT_DRIVE_PORT, 
-                Constants.BACK_RIGHT_DRIVE_PORT);
+        chassis = new RobotDrive(Constants.FRONT_LEFT_DRIVE_CHANNEL, 
+                Constants.BACK_LEFT_DRIVE_CHANNEL, 
+                Constants.FRONT_RIGHT_DRIVE_CHANNEL, 
+                Constants.BACK_RIGHT_DRIVE_CHANNEL);
+        
+         encoder = new Encoder(Constants.ENCODER_A_CHANNEL, Constants.ENCODER_B_CHANNEL);
+         encoder.setDistancePerPulse(Constants.ENCODER_DISTANCE_PER_PULSE);
         
     }
     
@@ -48,4 +53,13 @@ public class FroboDrive {
         
     }
     
+    /**
+     * The robot will drive in a straight line for a given distance
+     * @param distance Distance (in inches) to drive
+     */
+    public void drive(float distance){
+        encoder.start();
+        if(encoder.get() < distance)
+            chassis.drive(.5, .5);
+    }
 }

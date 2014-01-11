@@ -42,10 +42,10 @@ public class FroboShoot {
         this.motorToggle = new ToggleableButton(rightStick, Constants.JOYSTICK_MIDDLE_THUMB_BUTTON);
 
         
-        this.shootSolenoid = new DoubleSolenoid(Constants.SHOOT_KICKER_FORWARD_PORT, Constants.SHOOT_KICKER_REVERSE_PORT);
+        this.shootSolenoid = new DoubleSolenoid(Constants.SHOOT_KICKER_FORWARD_CHANNEL, Constants.SHOOT_KICKER_REVERSE_CHANNEL);
         
-        this.frontShootVictor = new Victor(Constants.FRONT_SHOOT_PORT);
-        this.backShootVictor = new Victor(Constants.BACK_SHOOT_PORT);
+        this.frontShootVictor = new Victor(Constants.FRONT_SHOOT_CHANNEL);
+        this.backShootVictor = new Victor(Constants.BACK_SHOOT_CHANNEL);
         
         motorsSpinning = false;
     }

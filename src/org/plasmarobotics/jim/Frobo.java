@@ -49,7 +49,7 @@ public class Frobo extends IterativeRobot {
         shoot = new FroboShoot(rightJoystick, this);
         climb = new FroboClimb();
         
-        compress = new Compressor(Constants.PRESSURE_SWITCH_PORT, Constants.COMPRESSOR_RELAY_CHANNEL);
+        compress = new Compressor(Constants.PRESSURE_SWITCH_CHANNEL, Constants.COMPRESSOR_RELAY_CHANNEL);
         compress.start();
     }
 
