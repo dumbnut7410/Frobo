@@ -4,6 +4,9 @@
  */
 package org.plasmarobotics.jim;
 
+import edu.wpi.first.wpilibj.CounterBase;
+import edu.wpi.first.wpilibj.Encoder;
+
 /**
  *This class holds all constant values within Frobo
  * @author Jim
@@ -79,10 +82,16 @@ public final class Constants {
     public static final int COMPRESSOR_RELAY_CHANNEL = 1;
     
     //Encoder
-    public static final int ENCODER_A_CHANNEL = 1;
-    public static final int ENCODER_B_CHANNEL = 2;
+    public static final int LEFT_ENCODER_A_CHANNEL = 4;
+    public static final int LEFT_ENCODER_B_CHANNEL = 5;
     
-    public static final double ENCODER_DISTANCE_PER_PULSE = 2.1;
+    public static final int RIGHT_ENCODER_A_CHANNEL = 2;
+    public static final int RIGHT_ENCODER_B_CHANNEL = 3;
     
+    public static final double ENCODER_DISTANCE_PER_PULSE = 0.05138;
+    
+    //gyro
+    public static final int GYRO_CHANNEL = 1;
+    public static final double GYRO_SENSITIVITY = 0.00698;
     
 }

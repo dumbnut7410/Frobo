@@ -4,7 +4,9 @@
  */
 package org.plasmarobotics.jim;
 
+import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 
@@ -20,8 +22,11 @@ public class FroboDrive {
             rightJoystick;
    
     RobotDrive chassis;
-    Encoder encoder;
-     
+    
+    Encoder LeftEncoder,
+            RightEncoder;
+    
+    Gyro gyro;
     /**
      * Used to create a FroboDrive object to control all driving controls
      * 
@@ -40,9 +45,17 @@ public class FroboDrive {
                 Constants.FRONT_RIGHT_DRIVE_CHANNEL, 
                 Constants.BACK_RIGHT_DRIVE_CHANNEL);
         
-         encoder = new Encoder(Constants.ENCODER_A_CHANNEL, Constants.ENCODER_B_CHANNEL);
-         encoder.setDistancePerPulse(Constants.ENCODER_DISTANCE_PER_PULSE);
+        //setting up encoders
+        LeftEncoder = new Encoder(Constants.LEFT_ENCODER_A_CHANNEL, Constants.LEFT_ENCODER_B_CHANNEL, false, CounterBase.EncodingType.k4X); //normal direciton
+        LeftEncoder.setDistancePerPulse(Constants.ENCODER_DISTANCE_PER_PULSE);
+         
+        RightEncoder = new Encoder(Constants.RIGHT_ENCODER_A_CHANNEL, Constants.RIGHT_ENCODER_B_CHANNEL, true, CounterBase.EncodingType.k4X); //reverse    
+        RightEncoder.setDistancePerPulse(Constants.ENCODER_DISTANCE_PER_PULSE);
         
+        //gyro
+        gyro = new Gyro(Constants.GYRO_CHANNEL);
+        gyro.setSensitivity(Constants.GYRO_SENSITIVITY);
+        gyro.reset();
     }
     
     /*
@@ -58,8 +71,13 @@ public class FroboDrive {
      * @param distance Distance (in inches) to drive
      */
     public void drive(float distance){
-        encoder.start();
-        if(encoder.get() < distance)
-            chassis.drive(.5, .5);
+        LeftEncoder.start();
+        double angle = gyro.getAngle();
+        if(LeftEncoder.get() < distance){
+            chassis.drive(.5, -angle * .03);//stay on track with .03 curve
+        } else{
+            chassis.drive(0, 0);//stop robot
+        }
+            
     }
 }
