@@ -7,8 +7,6 @@ package org.plasmarobotics.jim;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.Command;
 import org.plasmarobotics.jim.utils.ToggleableButton;
 /**
  *Class to manage shooting functionality of the robot
@@ -23,13 +21,14 @@ public class FroboShoot {
     
     private boolean motorsSpinning;
     
-    Joystick rightJoystick;
-    ToggleableButton shootBtn,
+    private Joystick rightJoystick;
+    private ToggleableButton shootBtn,
             motorToggle;
     
     /**
      * Sets up a froboShoot object
      * @param rightStick Needed to bind the JoystickButton to shoot
+     * @param frobo an instance of the main frobo class
      */
     public FroboShoot(Joystick rightStick, Frobo frobo){
         
@@ -65,7 +64,7 @@ public class FroboShoot {
     }
   
     /**
-     * Toggles whether or not the 
+     * Toggles whether or not the shoot motors are turning
      */
     private void refreshMotors(ToggleableButton button){
         
@@ -84,4 +83,3 @@ public class FroboShoot {
     
         
 }
-

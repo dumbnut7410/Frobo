@@ -10,28 +10,29 @@ import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Victor;
 import org.plasmarobotics.jim.utils.ToggleableButton;
 
-/**
- *This class handles all climbing operations of the robot
- * @author Jim
- */
+
 
 public class FroboClimb {
        
-    DoubleSolenoid climbSolenoid;
+    private DoubleSolenoid climbSolenoid;
     
-    Victor leftVictor,
+    private Victor leftVictor,
             rightVictor;
     
-    Joystick gamePad;        
+    private Joystick gamePad;        
  
-    ToggleableButton solenoidButton,
+    private ToggleableButton solenoidButton,
             lockButton;
     
-    Servo lock;
+    private Servo lock;
     
-    boolean isUp = false,
+    private boolean isUp = false,
             isLocked = false;
     
+    /**
+    *This class handles all climbing operations of the robot
+    * @author Jim
+    */
     public FroboClimb(){
         
         gamePad = new Joystick(Constants.GAMEPAD_PORT);
@@ -44,6 +45,9 @@ public class FroboClimb {
         rightVictor = new Victor(Constants.RIGHT_CLIMB_VICTOR_CHANNEL);
     }
            
+    /**
+     * Method to be called in teleop to control the climbing behavior of the robot
+     */
     public void update(){
         //Setting The climbing motors
         leftVictor.set(gamePad.getY());
@@ -63,6 +67,7 @@ public class FroboClimb {
             climbSolenoid.set(DoubleSolenoid.Value.kReverse);
         }
         
+        //actually locks the climb
         if(isLocked){
             lock.set(Constants.CLIMB_SERVO_OPEN);
         } else{

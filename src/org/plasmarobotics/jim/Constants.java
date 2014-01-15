@@ -19,14 +19,14 @@ public final class Constants {
     public static final int GAMEPAD_PORT = 3;
     
     //Drive motors
-    public static final int FRONT_LEFT_DRIVE_CHANNEL = 1;
-    public static final int BACK_LEFT_DRIVE_CHANNEL = 2;
-    public static final int FRONT_RIGHT_DRIVE_CHANNEL = 3;
-    public static final int BACK_RIGHT_DRIVE_CHANNEL = 4;
+    public static final int FRONT_LEFT_DRIVE_CHANNEL = 3;
+    public static final int BACK_LEFT_DRIVE_CHANNEL = 4;
+    public static final int FRONT_RIGHT_DRIVE_CHANNEL = 1;
+    public static final int BACK_RIGHT_DRIVE_CHANNEL = 2;
     
     //Shooting ports
-    public static final int FRONT_SHOOT_CHANNEL = 6;
-    public static final int BACK_SHOOT_CHANNEL = 7;
+    public static final int FRONT_SHOOT_CHANNEL = 5;
+    public static final int BACK_SHOOT_CHANNEL = 6;
     
     //Shoot kicker
     public static final int SHOOT_KICKER_FORWARD_CHANNEL = 8;
@@ -45,8 +45,8 @@ public final class Constants {
     public static final int RIGHT_CLIMB_VICTOR_CHANNEL = 15;
     
     //Motor speeds
-    public static final double FRONT_SHOOT_MOTOR_SPEED = .5;
-    public static final double BACK_SHOOT_MOTOR_SPEED = .5;
+    public static final double FRONT_SHOOT_MOTOR_SPEED = 1;
+    public static final double BACK_SHOOT_MOTOR_SPEED = 1;
 
     //Climbing servo
     public static final int CLIMB_SERVO_CHANNEL = 10;

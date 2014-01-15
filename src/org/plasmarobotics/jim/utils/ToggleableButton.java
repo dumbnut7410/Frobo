@@ -6,7 +6,6 @@ package org.plasmarobotics.jim.utils;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.PrintCommand;
 
 /**
  * This is an improved and modified version of the JoystickButton class

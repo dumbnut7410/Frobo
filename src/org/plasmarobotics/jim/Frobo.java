@@ -47,25 +47,39 @@ public class Frobo extends IterativeRobot {
 
         drive = new FroboDrive(leftJoystick, rightJoystick, this);
         shoot = new FroboShoot(rightJoystick, this);
-        climb = new FroboClimb();
+        
+      //  climb = new FroboClimb(); pneumatics are broken
         
         compress = new Compressor(Constants.PRESSURE_SWITCH_CHANNEL, Constants.COMPRESSOR_RELAY_CHANNEL);
         compress.start();
     }
 
+    public void autonomousInit() {
+        
+        drive.setupAutonomous();
+    }
+
+    
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-
+       
+        drive.drive(.5, 48);
     }
 
+    public void teleopInit() {
+        drive.setupTeleop();
+    }
+
+    
+    
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
        
-        drive.update();
+        drive.updateTeleop();
         shoot.update();
     }
     
