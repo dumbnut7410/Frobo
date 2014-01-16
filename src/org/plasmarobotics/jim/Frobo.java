@@ -17,7 +17,7 @@ package org.plasmarobotics.jim;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import java.util.Vector;
+import org.plasmarobotics.jim.utils.Vision;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -35,6 +35,7 @@ public class Frobo extends IterativeRobot {
     private FroboShoot shoot;
     private FroboClimb climb;
     private Compressor compress;
+    private Vision vision;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -47,6 +48,7 @@ public class Frobo extends IterativeRobot {
 
         drive = new FroboDrive(leftJoystick, rightJoystick, this);
         shoot = new FroboShoot(rightJoystick, this);
+        vision = new Vision();
         
       //  climb = new FroboClimb(); pneumatics are broken
         
@@ -63,10 +65,58 @@ public class Frobo extends IterativeRobot {
     /**
      * This function is called periodically during autonomous
      */
+    int step = 0; //used to iterate through commands
     public void autonomousPeriodic() {
-       
-        drive.drive(.5, 48);
+       switch(step){
+           case 0: 
+               if(drive.drive(.5, 48))
+                    step++;
+               break;
+               
+           case 1:
+               if(drive.turn(90))
+                    step++;
+               break;
+               
+           case 2:
+               if(drive.drive(.5, 48))
+                    step++;
+               break;
+               
+           case 3:
+               if(drive.turn(90))
+                   step++;
+               break;
+               
+           case 4:
+               if(drive.drive(.5,48))
+                   step++;
+               break;
+                     
+           case 5:
+               if(drive.turn(90))
+                   step++;
+               break;
+               
+           case 6:
+               if(drive.drive(.5, 48))
+                   step++;
+               break;
+               
+           case 7:
+               if(drive.turn(90))
+                   step++;
+               break;
+               
+           default:
+               System.out.println("no commands sent");
+               drive.drive(0, 0);
+               break;
+       }
+        
     }
+        
+    
 
     public void teleopInit() {
         drive.setupTeleop();
@@ -81,6 +131,8 @@ public class Frobo extends IterativeRobot {
        
         drive.updateTeleop();
         shoot.update();
+        vision.update();
+        
     }
     
     /**
