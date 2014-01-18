@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package org.plasmarobotics.jim.utils;
+package org.plasmarobotics.jim.sensors;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
@@ -24,7 +24,7 @@ public class Vision {
     }
     
     public void update(){
-        System.out.println("Distance " + server.getDouble("Distance", 0.0));
+      //  System.out.println("Distance " + server.getDouble("Distance", 0.0));
     }
 }
 

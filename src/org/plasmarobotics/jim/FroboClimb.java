@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Victor;
-import org.plasmarobotics.jim.utils.ToggleableButton;
+import org.plasmarobotics.jim.sensors.ToggleableButton;
 
 
 

@@ -66,7 +66,7 @@ public final class Constants {
                         GAMEPAD_SQUARE = 5,
                         GAMEPAD_CROSS = 6,
                         GAMEPAD_START = 7;
-    
+        
     //Gamepad thumbsticks
     public static final int GAMEPAD_LEFT_X_AXIS = 1,
                         GAMEPAD_LEFT_Y_AXIS = 2,
@@ -93,5 +93,9 @@ public final class Constants {
     //gyro
     public static final int GYRO_CHANNEL = 1;
     public static final double GYRO_SENSITIVITY = 0.00698;
+    
+    //Range finder
+    public static final double RANGE_CONSTANT = .0098;
+    public static final int RANGE_CHANNEL = 2;
     
 }

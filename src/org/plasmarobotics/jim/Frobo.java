@@ -17,7 +17,7 @@ package org.plasmarobotics.jim;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import org.plasmarobotics.jim.utils.Vision;
+import org.plasmarobotics.jim.sensors.Vision;
 
 /**
  * The VM is configured to automatically run this class, and to call the

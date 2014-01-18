@@ -7,7 +7,7 @@ package org.plasmarobotics.jim;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
-import org.plasmarobotics.jim.utils.ToggleableButton;
+import org.plasmarobotics.jim.sensors.ToggleableButton;
 /**
  *Class to manage shooting functionality of the robot
  * @author Jim
